@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+
+
+
+{% block title %} Strona główna {% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+<div class="container">
+
+
+ <div class="row">
+
+
+ <div class="col-md-6 col-md-offset-3">
+
+
+Strona główna
+
+
+{% if session['name'] %}
+
+
+Witaj{{ session['name'] }}
+
+<h1> Czy oddasz krew w przyszłości? </h1><br>
+
+        <form method="POST", action="{{url_for('home1')}}">
+           <b> Miesiące od ostatniego oddania krwi :  <input type="text", name='a', placeholder="enter 1"> <br><br>
+            Ilość przebytej donacji :  <input type="text", name='b', placeholder="enter 2"> <br><br>
+            Ilość oddanej krwi :  <input type="text", name='c', placeholder="enter 3"> <br><br>
+            Miesiące od pierwszego oddania krwi : <input type="text", name='d', placeholder="enter 4"> <br><br><br></b>
+            <input type="submit" , value='Oblicz!' >
+        </form>
+{% else %}
+
+
+Nie zalogowano, zaloguj się
+
+
+{% endif %}
+
+
+ </div>
+
+
+ </div>
+
+
+</div>
+{% endblock %}
